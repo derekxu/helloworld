@@ -1,7 +1,6 @@
 package twosigma;
 
 import java.util.*;
-import java.util.stream.*;
 /*
  * 1. Print out value pairs with smaller than 1.0 time difference 
  * from two data streams.这题加锁可以有不同方法加 会问
@@ -99,6 +98,21 @@ process() {
 
 }
  */
+abstract class DoubleStream {
+	abstract boolean hasNext();
+	abstract Double getNext();
+	static Builder builder() {
+		return null;
+	}
+	class Builder {
+		Builder(){
+			
+		}
+		DoubleStream build() {
+			return null;
+		}
+	}
+}
 public class ValuePair {
 
 	public static void main(String[] args) {

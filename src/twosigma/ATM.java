@@ -49,6 +49,8 @@ class BankAccount {
 	}
 }
 
+interface EmailService {}
+
 class ATMServiceImpl implements ATMService {
 	private Map<String, BankAccount> bankAccountTable;
 	Random randGen;
