@@ -1,9 +1,12 @@
 package facebook;
 
+/**
+判断一个int[] 是否是monotonous的
+ */
 public class MononicArray {
 
 	public static void main(String[] args) {
-		int[] nums = {1,2,1,3};
+		int[] nums = {1,2,2,3};
 		boolean res = new MononicArray().isMononic(nums);
 		if (res) {
 			System.out.println("Mononic");

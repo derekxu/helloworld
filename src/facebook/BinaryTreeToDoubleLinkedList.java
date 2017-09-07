@@ -6,6 +6,7 @@ import java.util.*;
 http://www.geeksforgeeks.org/convert-a-binary-tree-to-a-circular-doubly-link-list/
 
 convert a binary tree to a circle, double linked list...就是double linked list然后头尾连起来
+lintcode 378
  */
 public class BinaryTreeToDoubleLinkedList {
 
