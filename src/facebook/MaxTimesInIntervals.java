@@ -17,11 +17,59 @@ public class MaxTimesInIntervals {
 				new Interval(4,8),
 				new Interval(5,9),
 		};
+		List<Integer> res2 = new MaxTimesInIntervals().maxTimesLoc(intervals);
+		for (int num : res2) {
+			System.out.printf("%d,", num);
+		}
+		System.out.println();
 		List<Integer> res = new MaxTimesInIntervals().maxTimes(intervals);
 		for (int num : res) {
 			System.out.printf("%d,", num);
 		}
 		System.out.println();
+	}
+	public List<Integer> maxTimesLoc(Interval[] intervals) {
+		List<Line> lines = new ArrayList<>();
+		for (Interval interval : intervals) {
+			lines.add(new Line(interval.start, 1));
+			lines.add(new Line(interval.end, -1));
+		}
+		Collections.sort(lines, new Comparator<Line>(){
+			@Override
+			public int compare(Line a, Line b) {
+				if (a.x == b.x) {
+					return a.count - b.count;
+				}
+				return a.x - b.x;
+			}
+		});
+		int max = 0;
+		int times = 0;
+		int startX = Integer.MIN_VALUE;
+		List<Interval> intersects = new ArrayList<>();
+		for (Line line : lines) {
+			if (line.count == 1) {
+				times++;
+				startX = line.x;
+				if (times > max) {
+					max = times;
+					intersects = new ArrayList<>();
+				}
+			} else {
+				if (times == max) {
+					intersects.add(new Interval(startX, line.x));
+				}
+				times--;
+				startX = line.x;
+			}
+		}
+		List<Integer> res = new ArrayList<>();
+		for (Interval interval : intersects) {
+			for (int x = interval.start; x < interval.end; x++) {
+				res.add(x);
+			}
+		}
+		return res;
 	}
 
 	// Use sweep line redo.
@@ -79,6 +127,15 @@ public class MaxTimesInIntervals {
 			}
 		}
 		return res;
+	}
+
+	class Line {
+		int x;
+		int count;
+		Line(int x, int count) {
+			this.x = x;
+			this.count = count;
+		}
 	}
 
 	class IntElem {

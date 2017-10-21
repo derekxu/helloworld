@@ -4,6 +4,8 @@ import java.util.*;
 
 /**
 有一些账号，账号里面有一个或多个email， 如果两个账号有共同的email，则认为这两个账号是同一个人，找出哪些账号是同一个人
+Union Find, same as CombineEmails
+List<String[]> lists represent input is the easiest.
  */
 public class DupAccountEmails {
 

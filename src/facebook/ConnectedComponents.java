@@ -6,6 +6,7 @@ import facebook.GraphBiparty.GraphNode;
 
 /**
 找一个无向图中的所有联通分量，要求输出每个联通分量的点集.
+Connected Components of undirected graph.
  */
 public class ConnectedComponents {
 

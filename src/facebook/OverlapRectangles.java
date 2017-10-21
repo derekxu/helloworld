@@ -7,6 +7,12 @@ http://www.1point3acres.com/bbs/thread-166129-1-1.html
 
 几何算法问题。如果给你一堆的矩形， 求重合矩形重合最多的坐标位置。我上过一个算法课，大概思路就是做一个二维的meeting room II.
  */
+/**
+Another solution: 
+1. Horizontal scan first, save rectangles to each segment (line object store rect id).
+2. Vertical scan each segment, iterate rectangles of each seg.
+https://photos.app.goo.gl/uoDypBtdDlRekX113
+ */
 public class OverlapRectangles {
 
 	public static void main(String[] args) {

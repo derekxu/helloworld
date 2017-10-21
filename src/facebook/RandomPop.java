@@ -2,18 +2,10 @@ package facebook;
 
 import java.util.*;
 
+/**
+Randomly pop head or tail 50% probability.
+ */
 public class RandomPop {
-
-	public static void main(String[] args) {
-		int[] nums = {1,2,3,4,5};
-		System.out.print("Random output: ");
-		int[] res = new RandomPop().getSorted(new RandomArray(nums));
-		System.out.println();
-		System.out.print("Result: ");
-		for (int num : res) {
-			System.out.print(num + ",");
-		}
-	}
 
 	public int[] getSorted(RandomArray arr) {
 		int n = arr.size();
@@ -26,8 +18,7 @@ public class RandomPop {
 				res[r--] = num;
 			} else {
 				if (num > res[r+1]) {
-					res[l] = res[r+1];
-					l++;
+					res[l++] = res[r+1];
 					res[r+1] = num;
 				} else {
 					res[r--] = num;
@@ -66,4 +57,14 @@ public class RandomPop {
 		}
 	}
 
+	public static void main(String[] args) {
+		int[] nums = {1,2,3,4,5};
+		System.out.print("Random output: ");
+		int[] res = new RandomPop().getSorted(new RandomArray(nums));
+		System.out.println();
+		System.out.print("Result: ");
+		for (int num : res) {
+			System.out.print(num + ",");
+		}
+	}
 }

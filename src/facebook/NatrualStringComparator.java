@@ -34,6 +34,6 @@ public class NatrualStringComparator implements Comparator<String> {
 		if ((a >= '0' && a <= '9')) return -1;
 		if ((b >= '0' && b <= '9')) return 1;
 		
-		return Character.compare(a, b);
+		return (int) a - b;
 	}
 }

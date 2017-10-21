@@ -1,5 +1,8 @@
 package facebook;
 
+/**
+Sort the square of each element in a sorted array.
+ */
 public class SortedArraySquare {
 
 	public static void main(String[] args) {

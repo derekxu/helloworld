@@ -14,6 +14,8 @@ public class TaskSchedulerSequence {
 
 	public static void main(String[] args) {
 		List<String> tasks = Arrays.asList("1","2","1","1","2","3");
+		//List<String> tasks = Arrays.asList("1","2","3","1","2","3");
+		//List<String> tasks = Arrays.asList("1","1","1","1","2","3");
 		int len = 2;
 		List<String> res = new TaskSchedulerSequence().scheduleTask(tasks, len);
 		for (String str : res) {
@@ -21,6 +23,7 @@ public class TaskSchedulerSequence {
 		}
 		System.out.println("");
 		System.out.println(new TaskSchedulerSequence().scheduleTask2(tasks, len));
+		System.out.println(new TaskSchedulerSequence().scheduleTask3(tasks, len));
 	}
 	public List<String> scheduleTask(List<String> tasks, int len) {
 		Map<String, Integer> map = new HashMap<>();
@@ -40,20 +43,38 @@ public class TaskSchedulerSequence {
 		}
 		return res;
 	}
+
 	public int scheduleTask2(List<String> tasks, int len) {
 		Map<String, Integer> map = new HashMap<>();
 		int ts = 0;
-		int i = 0;
-		while (i < tasks.size()) {
-			String task = tasks.get(i);
+		for (String task : tasks) {
+			// Move the ts to the ts that the task can be scheduled.
+			// The other cases are the same.
 			if (map.containsKey(task) && map.get(task) >= ts) {
-				// HERE is the optimization.
 				ts = map.get(task) + 1;
-			} else {
-				map.put(task, ts + len);
-				i++;
-				ts++;
 			}
+			map.put(task, ts+len);
+			ts++;
+		}
+		return ts;
+	}
+
+	public int scheduleTask3(List<String> tasks, int len) {
+		Map<String, Integer> map = new HashMap<>();
+		int ts = 0;
+		Queue<String> q = new LinkedList<>();
+		for (String task : tasks) {
+			if (map.containsKey(task) && map.get(task) >= ts) {
+				ts = map.get(task) + 1;
+			}
+			// Remove before put new into map and queue
+			// len+1 b/c ts+len+1 can reschedule same task
+			if (q.size() == len+1) {
+				map.remove(q.poll());
+			}
+			map.put(task, ts+len);
+			ts++;
+			q.add(task);
 		}
 		return ts;
 	}

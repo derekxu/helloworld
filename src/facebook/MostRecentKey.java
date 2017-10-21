@@ -63,6 +63,7 @@ public class MostRecentKey {
 	}
 
 	private void removeNode(ListNode node) {
+		if (head == node) head = node.next;
 		if (node.prev != null)
 			node.prev.next = node.next;
 		if (node.next != null)

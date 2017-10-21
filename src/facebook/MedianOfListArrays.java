@@ -21,7 +21,7 @@ public class MedianOfListArrays {
 		PriorityQueue<Elem> q = new PriorityQueue<>(k, new Comparator<Elem>(){
 			@Override
 			public int compare (Elem a, Elem b) {
-				return Integer.compare(a.val, b.val);
+				return a.val - b.val;
 			}
 		});
 		int total = 0;

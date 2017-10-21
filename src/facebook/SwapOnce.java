@@ -4,11 +4,14 @@ import java.util.*;
 
 /**
 给你一个数组int[] nums，只swap一次，让你maximize这个数组能组成的数，假设数组里所有的数都是一位数
+
+O(n)
  */
 public class SwapOnce {
 
 	public static void main(String[] args) {
-		int[] nums = {4,2,3,3,1};
+		//int[] nums = {4,2,3,3,1};
+		int[] nums = {4,2,6,1,6};
 		new SwapOnce().swapOnce3(nums);
 		for (int num : nums) {
 			System.out.printf("%d,", num);

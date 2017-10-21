@@ -8,8 +8,8 @@ Previous Permutation，7531->7513.
 public class LastPermutation {
 
 	public static void main(String[] args) {
-		String num = "7138";
-		//String num = "7358";
+		//String num = "7138";
+		String num = "7358";
 		//String num = "1234";
 		System.out.println(new LastPermutation().next(num));
 	}

@@ -2,6 +2,10 @@ package facebook;
 
 import java.util.*;
 
+/**
+Git: 给你两个commit，求出他们最近的一个共同的ancestor commit。
+举个例子，commit4和commit3'最近的一个ancestor是commit2
+ */
 public class GitVersion {
 
 	public static void main(String[] args) {
@@ -26,8 +30,32 @@ public class GitVersion {
 			last = arr2.get(arr2.size()-1);
 		}
 		System.out.println(new GitVersion().findLCA(arr1.get(arr1.size()-1), arr2.get(arr2.size()-1)).id);
+		System.out.println(new GitVersion().findLCA2(arr1.get(arr1.size()-1), arr2.get(arr2.size()-1)).id);
 		System.out.println(new GitVersion().findAncestor(arr1.get(arr1.size()-1), arr2.get(arr2.size()-1)).id);
 	}
+
+	public Commit findLCA2(Commit c1, Commit c2) {
+		Set<Integer> s1 = new HashSet<>();
+		Set<Integer> s2 = new HashSet<>();
+		while (c1 != null && c2 != null) {
+			if (s1.contains(c2.id)) return c2;
+			if (s2.contains(c1.id)) return c1;
+			s1.add(c1.id);
+			s2.add(c2.id);
+			c1 = c1.parent;
+			c2 = c2.parent;
+		}
+		while (c1 != null) {
+			if (s2.contains(c1.id)) return c1;
+			c1 = c1.parent;
+		}
+		while (c2 != null) {
+			if (s1.contains(c2.id)) return c2;
+			c2 = c2.parent;
+		}
+		return null;
+	}
+
 	public Commit findLCA(Commit c1, Commit c2) {
 		return helper(c1, c2, new HashSet<Integer>(), new HashSet<Integer>());
 	}

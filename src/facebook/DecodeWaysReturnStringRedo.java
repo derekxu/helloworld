@@ -24,21 +24,21 @@ public class DecodeWaysReturnStringRedo {
 
 	public List<String> decodeways(String nums) {
 		if (nums.length() == 0) return new ArrayList<String>();
-		Node[] dp = new Node[2];
+		Node[] dp = new Node[nums.length()+1];
 		List<String> arr = new ArrayList<>();
 		arr.add("");
 		dp[0] = new Node(arr);
 		char[] strs = nums.toCharArray();
 		for (int i = 0; i < strs.length; i++) {
 			Node n1 = ways(strs[i]);
-			Node tmp = union(dp[i%2], n1);
+			Node tmp = union(dp[i], n1);
 			if (i > 0) {
 				Node n2 = ways(strs[i-1], strs[i]);
-				tmp = union(tmp, union(dp[(i-1)%2], n2));
+				tmp = union(tmp, union(dp[i-1], n2));
 			}
-			dp[(i+1)%2] = new Node(tmp.strs);
+			dp[i+1] = new Node(tmp.strs);
 		}
-		return dp[strs.length%2].strs;
+		return dp[strs.length].strs;
 	}
 
 	Node ways(char ch) {

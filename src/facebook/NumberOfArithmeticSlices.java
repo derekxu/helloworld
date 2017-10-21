@@ -4,6 +4,7 @@ import java.util.*;
 
 /**
 Given an array of integers, how many of subarrays of arithmetic.
+Can reorder.
 
 https://www.jiuzhang.com/solution/arithmetic-slices-ii-subsequence/
  */

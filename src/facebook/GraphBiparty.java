@@ -2,6 +2,10 @@ package facebook;
 
 import java.util.*;
 
+/**
+Test if the given graph is a biparty graph.
+ */
+
 public class GraphBiparty {
 
 	public static void main(String[] args) {
@@ -52,6 +56,7 @@ public class GraphBiparty {
 		return true;
 	}
 
+	// Optimal: set 2 colors
 	public boolean isBiparty2(GraphNode node) {
 		if (node == null) return true;
 		Queue<GraphNode> q = new LinkedList<>();

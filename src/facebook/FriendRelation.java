@@ -4,6 +4,7 @@ import java.util.*;
 
 /**
 http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=216431&extra=page%3D1%26filter%3Dsortid%26sortid%3D311%26searchoption%255B3046%255D%255Bvalue%255D%3D2%26searchoption%255B3046%255D%255Btype%255D%3Dradio&page=1
+ 1.input friends relation {{1，2}， {2，3}， {3，4}} 把用户存在两个group里， 每个group里大家都不互相认识。所以exp应该g1{1，3} g2{2，4}。
  */
 public class FriendRelation {
 

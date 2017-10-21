@@ -1,8 +1,8 @@
 package facebook;
 
 /**
-void putInteger( Int x) {} 这个就是打印一个整数 ，必须用下面的程序。
-using putc( char ); 这个function就是打印char， 输入是什么char打印就是什么char
+void printInteger( Int x) {} 这个就是打印一个整数 ，必须用下面的程序。
+using printc( char ); 这个function就是打印char， 输入是什么char打印就是什么char
  */
 public class PrintInteger {
 
@@ -12,7 +12,7 @@ public class PrintInteger {
 	}
 
 	public void printInteger(int x) {
-		if (x == Integer.MAX_VALUE) {
+		if (x == Integer.MIN_VALUE) {
 			for (char c : "-2147483648".toCharArray())
 				printChar(c);
 			return;

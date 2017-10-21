@@ -11,6 +11,7 @@ public class FibModTen {
 		arr = new ArrayList<>();
 		arr.add(0);
 		arr.add(1);
+		// exit loop when repeats
 		while (arr.get(arr.size()-1) != 1 || arr.get(arr.size()-2) != 9) {
 			int len = arr.size();
 			arr.add((arr.get(len-1) + arr.get(len-2))%10);

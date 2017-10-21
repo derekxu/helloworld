@@ -2,6 +2,9 @@ package facebook;
 
 import java.util.*;
 
+/**
+NOT an interview question
+ */
 public class ConstructBinaryTree {
 	public static void main(String[] args) {
 		// No ignore of null until end of the bottom level.

@@ -1,5 +1,8 @@
 package facebook;
 
+/**
+Implement circular buffer with read & write functions.
+ */
 public class CircularBuffer {
 	Integer[] buff;
 	CircularBuffer(int n) {

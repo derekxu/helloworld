@@ -26,6 +26,7 @@ public class MatrixPlusSign {
 		System.out.println(new MatrixPlusSign().maxLen(box));
 	}
 
+	// Top down and bottom up
 	public int maxLen(char[][] box) {
 		if (box.length == 0 || box[0].length == 0)
 			return 0;

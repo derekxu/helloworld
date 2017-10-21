@@ -48,6 +48,7 @@ public class MinQueue {
 		if (s2.isEmpty()) {
 			while (!s1.isEmpty()) {
 				s2.push(s1.pop());
+				// Important: minS2 is the min of s2 (i.e. the min of 1st half of queue)
 				if (minS2.isEmpty() || s2.peek() <= minS2.peek()) {
 					minS2.push(s2.peek());
 				}

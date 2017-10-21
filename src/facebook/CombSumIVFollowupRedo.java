@@ -32,29 +32,28 @@ public class CombSumIVFollowupRedo {
 	public static void main(String[] args) {
 		int[] nums = {-1,1,2};
 		int target = 4;
-		int maxLen = 4;
+		int maxLen = 3;
 		System.out.println(new CombSumIVFollowupRedo().numOfSums(nums, target, maxLen));
 	}
 
 	public int numOfSums(int[] nums, int target, int maxLen) {
-		return helper(nums, target, maxLen, new HashMap<Integer, Map<Integer, Integer>>());
+		Map<Integer, Map<Integer, Integer>> map = new HashMap<Integer, Map<Integer, Integer>>();
+		return helper(nums, target, maxLen, map);
 	}
-	// map - counts of target at maxLen
-	private int helper(int[] nums, int t, int maxLen, Map<Integer, Map<Integer,Integer>> map) {
-		if (maxLen < 0) return 0;
-		int count = 0;
-		if (t == 0) count++;
+
+	private int helper(int[] nums, int t, int len, Map<Integer, Map<Integer, Integer>> map) {
+		if (len < 0) return 0;
+		if (!map.containsKey(t)) map.put(t, new HashMap<Integer, Integer>());
+		if (map.get(t).containsKey(len))
+			return map.get(t).get(len);
+		int res = 0;
+		if (t == 0) {
+			res++;
+		}
 		for (int num : nums) {
-			if (map.containsKey(t - num) && map.get(t-num).containsKey(maxLen-1)) {
-				count += map.get(t-num).get(maxLen-1);
-			} else {
-				count += helper(nums, t-num, maxLen-1, map);
-			}
+			res += helper(nums, t-num, len-1, map);
 		}
-		if (!map.containsKey(t)) {
-			map.put(t, new HashMap<Integer, Integer>());
-		}
-		map.get(t).put(maxLen, count);
-		return count;
+		map.get(t).put(len, res);
+		return res;
 	}
 }

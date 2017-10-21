@@ -2,6 +2,10 @@ package facebook;
 
 import java.util.*;
 
+/**
+在象棋棋盘上给你两个点A，B，问一个Knight(大哥说，就是骑马那个哈)最少要几步从A跳到B。露珠从来没玩过国际象棋，于 是问Knight咋走。
+Turns out只要走任意朝向的L形就好。具体来说，如coordinate是(x,y) 那么在这里的一只knight可以跳到八个position中任何一个: (x- 2,y-1); (x-2,y+1);(x+2,y-1);(x+2,y+1);(x-1,y+2);(x-1,y-2);(x+1,y-2);(x+1,y+2).
+ */
 public class KnightPath {
 
 	public static void main(String[] args) {

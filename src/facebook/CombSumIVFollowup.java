@@ -3,7 +3,8 @@ package facebook;
 import java.util.*;
 
 /**
-Given an integer array with all positive numbers and no duplicates, find the number of possible combinations that add up to a positive integer target.
+Given an integer array with all positive numbers and no duplicates, find the number of possible combinations that 
+add up to a positive integer target.
 
 Example:
 
@@ -30,7 +31,10 @@ What limitation we need to add to the question to allow negative numbers?
 public class CombSumIVFollowup {
 
 	public static void main(String[] args) {
-		int[] nums = {1,2,3};
+		/*int[] nums = {1,2,3};
+		int target = 4;
+		int maxLen = 3;*/
+		int[] nums = {-1,1,2};
 		int target = 4;
 		int maxLen = 3;
 		int res = new CombSumIVFollowup().combSum4(nums, target, maxLen);
@@ -51,6 +55,7 @@ public class CombSumIVFollowup {
 			return map.get(t).get(len);
 		int count  = 0;
 		// Current sequence, no more operation fulfill the target, thus, count++;
+		// Graph to a point count++, like backtracking, len < maxLen
 		if (t == 0) count++;
 		for (int num : nums) {
 			count += helper(nums, len-1, t-num, map);

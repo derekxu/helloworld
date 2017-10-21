@@ -1,5 +1,9 @@
 package facebook;
 
+/**
+给一个手机键盘(只有0-9，不考虑*#那两个位置)样式的棋盘，骑士初始在数字1的位置，问走了s步以后(每 步走日字)，有多少种可能的走法。
+提示是可以hard code下一步的位置， 比如1->(6，8)。
+ */
 public class KnightOnDigitPad {
 
 	public static void main(String[] args) {

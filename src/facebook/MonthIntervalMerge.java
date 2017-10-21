@@ -2,6 +2,10 @@ package facebook;
 
 import java.util.*;
 
+/**
+Return total covered number of month of input.
+ */
+
 public class MonthIntervalMerge {
 	String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
 	Map<String, Integer> moMap;

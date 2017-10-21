@@ -1,5 +1,9 @@
 package facebook;
 
+/**
+ * 
+给一个数，问是第几个Fibonacci, 不是Fibonacci 就是的话就是前一个index,
+ */
 public class FibIndex {
 
 	public static void main(String[] args) {
